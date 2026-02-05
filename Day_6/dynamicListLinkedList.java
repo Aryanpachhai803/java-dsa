@@ -16,7 +16,7 @@ public class dynamicListLinkedList {
         Node second = new Node(40);
         Node third = new Node(60);
 
-        head.next = second;
+        head.next = second; 
         second.next = third;
 
         Node temp = head;
