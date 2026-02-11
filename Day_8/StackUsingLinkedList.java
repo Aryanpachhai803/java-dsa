@@ -39,6 +39,21 @@ public class StackUsingLinkedList {
         return;
     }
 
+    //Pop Operation
+
+    public void pop(){
+        if(top == null){
+            System.out.println("Stack Underflow");
+            return;
+        }
+        Node temp = top;
+        int element = top.data;
+        top = top.next;
+        size--;
+        System.out.println("The popped element in the stack is: " + element);
+        return;
+    }
+
     public static void main(String[] args) {
         StackUsingLinkedList linkList = new StackUsingLinkedList();
         Scanner sc = new Scanner(System.in);
@@ -60,7 +75,8 @@ public class StackUsingLinkedList {
                     break;
 
                 case 2:
-
+                    linkList.pop();
+                    break;
 
                 case 3:
                 case 4:
