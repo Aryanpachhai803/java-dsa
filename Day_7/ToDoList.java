@@ -24,7 +24,7 @@ public class ToDoList {
 
         if (head == null) {
             head = newNode;
-            System.out.println("Task Added : ");
+            System.out.println("Task Added.");
             return;
         }
         temp = head;
