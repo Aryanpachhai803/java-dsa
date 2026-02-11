@@ -54,6 +54,21 @@ public class StackUsingLinkedList {
         return;
     }
 
+    //Display Operation
+
+    public void display(){
+        if(top == null){
+            System.out.println("Stack is empty");
+            return;
+        }
+
+        Node temp = top;
+        System.out.println("Stack Elements : ");
+        while(temp != null){
+            System.out.println(temp.data);
+            temp = temp.next;   
+        }
+    }
     public static void main(String[] args) {
         StackUsingLinkedList linkList = new StackUsingLinkedList();
         Scanner sc = new Scanner(System.in);
@@ -79,6 +94,9 @@ public class StackUsingLinkedList {
                     break;
 
                 case 3:
+                    linkList.display();
+                    break;
+                    
                 case 4:
                     System.out.println("Thank you. Exiting.....");
                     sc.close();
