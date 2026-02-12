@@ -54,6 +54,17 @@ public class StackUsingLinkedList {
         return;
     }
 
+    //Peek Operation
+
+    public void peek(){
+        if(top == null){
+            System.out.println("Stack is empty");
+            return;
+        }
+
+        System.out.println("Top element : " + top.data);
+    }
+
     //Display Operation
 
     public void display(){
@@ -77,8 +88,9 @@ public class StackUsingLinkedList {
             System.out.println("=====Stack Menu=====");
             System.out.println("1. Push");
             System.out.println("2. Pop");
-            System.out.println("3. Display");
-            System.out.println("4. Exit");
+            System.out.println("3. Peek");
+            System.out.println("4. Display");
+            System.out.println("5. Exit");
 
             int choice = sc.nextInt();
 
@@ -94,10 +106,14 @@ public class StackUsingLinkedList {
                     break;
 
                 case 3:
+                    linkList.peek();
+                    break;
+
+                case 4:
                     linkList.display();
                     break;
                     
-                case 4:
+                case 5:
                     System.out.println("Thank you. Exiting.....");
                     sc.close();
                     return;
