@@ -18,7 +18,7 @@ public class SimpleProject {
 
     Node top;
 
-    public void Stack(){
+    public void SimpleProject(){
         this.top = null;
     }
 
@@ -54,6 +54,22 @@ public class SimpleProject {
         return;
     }
 
+    //Display Current Stack
+
+    public void display(){
+        if(top == null){
+            System.out.println("Stack Underflow");
+            return;
+        }
+
+        Node temp = top;
+        System.out.println("Stack Tasks : ");
+        while(temp != null){
+            System.out.println(temp.task);
+            temp = temp.next;
+        }
+    }
+
     public static void main(String[] args) {
         SimpleProject linkList = new SimpleProject();
         Scanner sc = new Scanner(System.in);
@@ -66,6 +82,7 @@ public class SimpleProject {
             System.out.println("4. Exit Program");
 
             int choice = sc.nextInt();
+            sc.nextLine();
 
             switch (choice) {
                 case 1:
@@ -78,6 +95,9 @@ public class SimpleProject {
                     linkList.undo();
                     break;
 
+                case 3:
+                    linkList.display();
+                    break;
 
                 case 4:
                     System.out.println("Thank you. Exiting.....");
