@@ -39,6 +39,20 @@ public class SimpleProject {
         return;
     }
 
+    //Undo Last Action
+
+    public void undo(){
+        if(top ==  null){
+            System.out.println("Stack Underflow");
+            return;
+        }
+        Node temp = top;
+        String element = top.task;
+        top = top.next;
+        size--;
+        System.out.println("Undo the last task of the stack is : " + element);
+        return;
+    }
 
     public static void main(String[] args) {
         SimpleProject linkList = new SimpleProject();
@@ -58,6 +72,10 @@ public class SimpleProject {
                     System.out.println("Enter the task: ");
                     String element = sc.nextLine();
                     linkList.add(element);
+                    break;
+
+                case 2:
+                    linkList.undo();
                     break;
 
 
