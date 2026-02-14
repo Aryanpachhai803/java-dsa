@@ -53,6 +53,7 @@ public class PalindromeChecker {
         while (true) {
             System.out.println("---Palindrome Checker---");
             System.out.println("1. Check Palindrome");
+            System.out.println("2. Exit the program");
 
             int choice = sc.nextInt();
             sc.nextLine();
@@ -84,6 +85,10 @@ public class PalindromeChecker {
                         System.out.println("It is not a Palindrome.");
                     }
                     break;
+
+                case 2:
+                    System.out.println("Exiting the program.....");
+                    return;
 
                 default:
                     System.out.println("Invalid choice. Try again.");
