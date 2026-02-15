@@ -23,24 +23,39 @@ public class TicketBooking {
         System.out.println("Ticket System with " + seats + "seats.");
     }
 
-    //Enqueue Operation
-    public void addSeats(String name, int tickets){
-        if(tickets > availableSeats){
+    // Enqueue Operation
+    public void addSeats(String name, int tickets) {
+        if (tickets > availableSeats) {
             System.out.println("Seats not available");
             return;
         }
 
         Node newNode = new Node(name + " ( " + tickets + " tickets) ");
-        if(rear == null){
+        if (rear == null) {
             front = rear = newNode;
-        }
-        else{
+        } else {
             rear.next = newNode;
             rear = newNode;
         }
 
         availableSeats -= tickets;
         System.out.println(name + " added to queue.");
+    }
+
+    // Dequeue Operation
+    public void withdrawSeats() {
+
+        if (front == null) {
+            System.out.println("Queue is empty.");
+            return;
+        }
+
+        System.out.println("Canceling : " + front.data);
+        front = front.next;
+
+        if (front == null) {
+            rear = null;
+        }
     }
 
     public static void main(String[] args) {
@@ -51,6 +66,7 @@ public class TicketBooking {
         while (true) {
             System.out.println("===Ticket Booking System===");
             System.out.println("1. Add Customer");
+            System.out.println("2. Serve Customer");
 
             int choice = sc.nextInt();
 
@@ -61,9 +77,13 @@ public class TicketBooking {
                     String name = sc.nextLine();
                     System.out.println("Enter number of tickets : ");
                     int tickets = sc.nextInt();
-                    queue.addSeats(name,tickets);
+                    queue.addSeats(name, tickets);
                     break;
-            
+
+                case 2:
+                    queue.withdrawSeats();
+                    break;    
+
                 default:
                     break;
             }
