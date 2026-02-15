@@ -85,6 +85,7 @@ public class TicketBooking {
             System.out.println("1. Add Customer");
             System.out.println("2. Serve Customer");
             System.out.println("3. Display Queue");
+            System.out.println("4. Exit the System");
 
             int choice = sc.nextInt();
 
@@ -106,8 +107,12 @@ public class TicketBooking {
                     queue.displayQueue();
                     break;
                     
-                    
+                case 4:
+                    System.out.println("Exiting the System.......");
+                    return;
+                        
                 default:
+                    System.out.println("Invalid choice !! Try again.");
                     break;
             }
         }
