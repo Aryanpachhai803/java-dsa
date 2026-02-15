@@ -58,6 +58,23 @@ public class TicketBooking {
         }
     }
 
+    // Display Operation
+    public void displayQueue() {
+        if (front == null) {
+            System.out.println("Queue is empty.");
+            return;
+        }
+
+        Node temp = front;
+        System.out.println("Customers in Queue:");
+        while (temp != null) {
+            System.out.println(temp.data);
+            temp = temp.next;
+        }
+
+        System.out.println("Available Seats: " + availableSeats);
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         TicketBooking queue = new TicketBooking();
@@ -67,6 +84,7 @@ public class TicketBooking {
             System.out.println("===Ticket Booking System===");
             System.out.println("1. Add Customer");
             System.out.println("2. Serve Customer");
+            System.out.println("3. Display Queue");
 
             int choice = sc.nextInt();
 
@@ -82,8 +100,13 @@ public class TicketBooking {
 
                 case 2:
                     queue.withdrawSeats();
-                    break;    
-
+                    break; 
+                       
+                case 3:
+                    queue.displayQueue();
+                    break;
+                    
+                    
                 default:
                     break;
             }
