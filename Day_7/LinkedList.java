@@ -19,7 +19,7 @@ public class LinkedList {
     public void insertAtBeginning(int elementStart) {
         Node newNode = new Node(elementStart);
         newNode.next = head;
-        head = newNode;
+        head = newNode; 
         System.out.println("Element inserted at the beginning.");
     }
 
