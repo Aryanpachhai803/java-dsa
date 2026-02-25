@@ -63,7 +63,30 @@ public class QueueUsingLinkedList {
         System.out.println("The dequeued element from the queue is: " + element);
     }
 
- 
+    // Peek Operation
+    public void peek() {
+        if (front == null) {
+            System.out.println("Queue is empty");
+            return;
+        }
+
+        System.out.println("Front element: " + front.data);
+    }
+
+    // Display Operation
+    public void display() {
+        if (front == null) {
+            System.out.println("Queue is empty");
+            return;
+        }
+
+        Node temp = front;
+        System.out.println("Queue Elements: ");
+        while (temp != null) {
+            System.out.println(temp.data);
+            temp = temp.next;
+        }
+    }
 
     public static void main(String[] args) {
         QueueUsingLinkedList queue = new QueueUsingLinkedList();
@@ -89,6 +112,15 @@ public class QueueUsingLinkedList {
                 case 2:
                     queue.dequeue();
                     break;
+
+                case 3:
+                    queue.peek();
+                    break;
+
+                case 4:
+                    queue.display();
+                    break;
+
 
                 default:
                     System.out.println("Invalid choice. Try again");
