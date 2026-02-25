@@ -45,6 +45,25 @@ public class QueueUsingLinkedList {
         System.out.println("The enqueued element in the queue is: " + element);
     }
 
+    // Dequeue Operation
+    public void dequeue() {
+        if (front == null) {
+            System.out.println("Queue Underflow");
+            return;
+        }
+
+        int element = front.data;
+        front = front.next;
+
+        if (front == null) {
+            rear = null;
+        }
+
+        size--;
+        System.out.println("The dequeued element from the queue is: " + element);
+    }
+
+ 
 
     public static void main(String[] args) {
         QueueUsingLinkedList queue = new QueueUsingLinkedList();
@@ -67,6 +86,9 @@ public class QueueUsingLinkedList {
                     queue.enqueue(element);
                     break;
 
+                case 2:
+                    queue.dequeue();
+                    break;
 
                 default:
                     System.out.println("Invalid choice. Try again");
