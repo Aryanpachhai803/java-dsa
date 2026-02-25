@@ -25,6 +25,26 @@ public class QueueUsingLinkedList {
         this.rear = null;
     }
 
+    // Enqueue Operation
+    public void enqueue(int element) {
+        if (size == MAX) {
+            System.out.println("Queue Overflow");
+            return;
+        }
+
+        Node newNode = new Node(element);
+
+        if (rear == null) {
+            front = rear = newNode;
+        } else {
+            rear.next = newNode;
+            rear = newNode;
+        }
+
+        size++;
+        System.out.println("The enqueued element in the queue is: " + element);
+    }
+
 
     public static void main(String[] args) {
         QueueUsingLinkedList queue = new QueueUsingLinkedList();
@@ -41,6 +61,12 @@ public class QueueUsingLinkedList {
             int choice = sc.nextInt();
 
             switch (choice) {
+                case 1:
+                    System.out.println("Enter the element: ");
+                    int element = sc.nextInt();
+                    queue.enqueue(element);
+                    break;
+
 
                 default:
                     System.out.println("Invalid choice. Try again");
