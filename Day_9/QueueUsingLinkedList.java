@@ -1,11 +1,9 @@
 package Day_9;
-
 import java.util.Scanner;
 
 public class QueueUsingLinkedList {
     int size = 0;
     int MAX = 10;
-
     static class Node {
         int data;
         Node next;
@@ -31,16 +29,13 @@ public class QueueUsingLinkedList {
             System.out.println("Queue Overflow");
             return;
         }
-
         Node newNode = new Node(element);
-
         if (rear == null) {
             front = rear = newNode;
         } else {
             rear.next = newNode;
             rear = newNode;
         }
-
         size++;
         System.out.println("The enqueued element in the queue is: " + element);
     }
@@ -51,14 +46,11 @@ public class QueueUsingLinkedList {
             System.out.println("Queue Underflow");
             return;
         }
-
         int element = front.data;
         front = front.next;
-
         if (front == null) {
             rear = null;
         }
-
         size--;
         System.out.println("The dequeued element from the queue is: " + element);
     }
@@ -69,7 +61,6 @@ public class QueueUsingLinkedList {
             System.out.println("Queue is empty");
             return;
         }
-
         System.out.println("Front element: " + front.data);
     }
 
@@ -79,7 +70,6 @@ public class QueueUsingLinkedList {
             System.out.println("Queue is empty");
             return;
         }
-
         Node temp = front;
         System.out.println("Queue Elements: ");
         while (temp != null) {
@@ -121,6 +111,10 @@ public class QueueUsingLinkedList {
                     queue.display();
                     break;
 
+                case 5:
+                    System.out.println("Thank you. Exiting.....");
+                    sc.close();
+                    return;
 
                 default:
                     System.out.println("Invalid choice. Try again");
