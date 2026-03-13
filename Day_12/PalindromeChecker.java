@@ -15,6 +15,15 @@ public class PalindromeChecker {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
+        System.out.println("Enter a word");
+        String input = sc.nextLine();
 
+        boolean result = Palindrome(input,0,input.length()-1);
+        if(result){
+            System.out.println("It is a Palindrome");
+        }
+        else{
+            System.out.println("It isnot a Palindrome");
+        }
     }
 }
