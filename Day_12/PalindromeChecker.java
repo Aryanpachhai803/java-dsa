@@ -11,7 +11,7 @@ public class PalindromeChecker {
         }
         return Palindrome(s, start +1, end-1);
     }
-    
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter a word:");
@@ -25,5 +25,5 @@ public class PalindromeChecker {
             System.out.println("It isnot a Palindrome");
         }
         sc.close();
-    }
+    }   
 }
