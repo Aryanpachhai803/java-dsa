@@ -127,7 +127,35 @@ public class DoublyLinkedList {
         System.out.println();
     }
 
+    // ---------------- Search ----------------
+    public void searchElement(int target) {
+        Node temp = head;
+        int pos = 0;
 
+        while (temp != null) {
+            if (temp.data == target) {
+                System.out.println("Element found at index: " + pos);
+                return;
+            }
+            temp = temp.next;
+            pos++;
+        }
+
+        System.out.println("Element not found in list.");
+    }
+
+    // ---------------- List Size ----------------
+    public void listSize() {
+        int count = 0;
+        Node temp = head;
+
+        while (temp != null) {
+            count++;
+            temp = temp.next;
+        }
+
+        System.out.println("List Size: " + count);
+    }
 
     // ---------------- Main Method ----------------
     public static void main(String[] args) {
