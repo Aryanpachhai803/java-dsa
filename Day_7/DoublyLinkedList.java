@@ -17,6 +17,41 @@ public class DoublyLinkedList {
         }
     }
 
+    // ---------------- Insert At Beginning ----------------
+    public void insertAtBeginning(int elementStart) {
+        Node newNode = new Node(elementStart);
+
+        if (head != null) {
+            head.prev = newNode;
+        }
+
+        newNode.next = head;
+        head = newNode;
+
+        System.out.println("Element inserted at the beginning.");
+    }
+
+    // ---------------- Insert At End ----------------
+    public void insertAtEnd(int elementEnd) {
+        Node newNode = new Node(elementEnd);
+
+        if (head == null) {
+            head = newNode;
+            System.out.println("Element inserted at the end.");
+            return;
+        }
+
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+
+        temp.next = newNode;
+        newNode.prev = temp;
+
+        System.out.println("Element inserted at the end.");
+    }
+
 
     // ---------------- Main Method ----------------
     public static void main(String[] args) {
