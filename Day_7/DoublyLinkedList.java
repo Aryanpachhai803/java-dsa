@@ -89,6 +89,45 @@ public class DoublyLinkedList {
         temp.prev.next = null;
     }
 
+    // ---------------- Traverse Forward ----------------
+    public void traverseForward() {
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+
+        Node temp = head;
+        System.out.println("Forward Traversal:");
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.next;
+        }
+        System.out.println();
+    }
+
+    // ---------------- Traverse Backward ----------------
+    public void traverseBackward() {
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+
+        Node temp = head;
+
+        // go to last node
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+
+        System.out.println("Backward Traversal:");
+        while (temp != null) {
+            System.out.print(temp.data + " ");
+            temp = temp.prev;
+        }
+        System.out.println();
+    }
+
+
 
     // ---------------- Main Method ----------------
     public static void main(String[] args) {
