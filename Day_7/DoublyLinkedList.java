@@ -177,6 +177,45 @@ public class DoublyLinkedList {
             int choice = sc.nextInt();
 
             switch (choice) {
+                case 1:
+                    System.out.print("Enter element: ");
+                    list.insertAtBeginning(sc.nextInt());
+                    break;
+
+                case 2:
+                    System.out.print("Enter element: ");
+                    list.insertAtEnd(sc.nextInt());
+                    break;
+
+                case 3:
+                    list.deleteFromStart();
+                    break;
+
+                case 4:
+                    list.deleteFromEnd();
+                    break;
+
+                case 5:
+                    list.traverseForward();
+                    break;
+
+                case 6:
+                    list.traverseBackward();
+                    break;
+
+                case 7:
+                    System.out.print("Enter element to search: ");
+                    list.searchElement(sc.nextInt());
+                    break;
+
+                case 8:
+                    list.listSize();
+                    break;
+
+                case 9:
+                    System.out.println("Exiting...");
+                    sc.close();
+                    return;
 
                 default:
                     System.out.println("Invalid choice. Try again.");
