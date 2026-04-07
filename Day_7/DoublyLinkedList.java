@@ -52,6 +52,43 @@ public class DoublyLinkedList {
         System.out.println("Element inserted at the end.");
     }
 
+    // ---------------- Delete From Start ----------------
+    public void deleteFromStart() {
+        if (head == null) {
+            System.out.println("Underflow Error: List is empty");
+            return;
+        }
+
+        if (head.next == null) {
+            head = null;
+            return;
+        }
+
+        head = head.next;
+        head.prev = null;
+    }
+
+    // ---------------- Delete From End ----------------
+    public void deleteFromEnd() {
+        if (head == null) {
+            System.out.println("List is empty");
+            return;
+        }
+
+        if (head.next == null) {
+            head = null;
+            return;
+        }
+
+        Node temp = head;
+
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+
+        temp.prev.next = null;
+    }
+
 
     // ---------------- Main Method ----------------
     public static void main(String[] args) {
