@@ -1,7 +1,6 @@
 package Practical;
 
 public class Hashing {
-
     static int[] hashTable = new int[10]; // size of hash table
 
     static int hashFunction(int key) {
