@@ -39,7 +39,17 @@ class CircularPlaylist {
         current = (current + 1) % size; // loop only within valid songs
     }
 
+    public void display() {
+        if (size == 0) {
+            System.out.println("Playlist is empty!");
+            return;
+        }
 
+        System.out.println("\nPlaylist:");
+        for (int i = 0; i < size; i++) {
+            System.out.println((i + 1) + ". " + songs[i]);
+        }
+    }
 }
 
 public class MusicPlaylist {
