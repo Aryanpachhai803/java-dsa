@@ -16,6 +16,19 @@ class CircularPlaylist {
         current = 0;
     }
 
+    public void addSong(String song) {
+        if (size == capacity) {
+            System.out.println("Playlist is full!");
+            return;
+        }
+
+        rear = (rear + 1) % capacity;
+        songs[rear] = song;
+        size++;
+
+        System.out.println("Added: " + song);
+    }
+
 }
 
 public class MusicPlaylist {
