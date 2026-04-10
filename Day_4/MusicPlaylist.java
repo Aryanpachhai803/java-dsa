@@ -6,7 +6,7 @@ class CircularPlaylist {
     private String[] songs;
     private int size, capacity;
     private int rear;
-    private int current; // pointer for playing songs
+    private int current;
 
     public CircularPlaylist(int capacity) {
         this.capacity = capacity;
@@ -21,11 +21,9 @@ class CircularPlaylist {
             System.out.println("Playlist is full!");
             return;
         }
-
         rear = (rear + 1) % capacity;
         songs[rear] = song;
         size++;
-
         System.out.println("Added: " + song);
     }
 
@@ -34,7 +32,6 @@ class CircularPlaylist {
             System.out.println("Playlist is empty!");
             return;
         }
-
         System.out.println("Now Playing: " + songs[current]);
         current = (current + 1) % size; // loop only within valid songs
     }
@@ -44,15 +41,51 @@ class CircularPlaylist {
             System.out.println("Playlist is empty!");
             return;
         }
-
         System.out.println("\nPlaylist:");
         for (int i = 0; i < size; i++) {
             System.out.println((i + 1) + ". " + songs[i]);
         }
     }
 }
-
 public class MusicPlaylist {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        CircularPlaylist playlist = new CircularPlaylist(5);
+
+        int choice;
+        do {
+            System.out.println("\n===== MUSIC PLAYLIST MENU =====");
+            System.out.println("1. Add Song");
+            System.out.println("2. Play Next Song");
+            System.out.println("3. Show Playlist");
+            System.out.println("4. Exit");
+            System.out.print("Enter choice: ");
+
+            choice = sc.nextInt();
+            sc.nextLine(); 
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter song name: ");
+                    String song = sc.nextLine();
+                    playlist.addSong(song);
+                    break;
+
+                case 2:
+                    playlist.playNext();
+                    break;
+
+                case 3:
+                    playlist.display();
+                    break;
+
+                case 4:
+                    System.out.println("Exiting...");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice!");
+            }
+        } while (choice != 4);
+        sc.close();
     }
 }
