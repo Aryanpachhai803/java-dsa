@@ -32,7 +32,10 @@ class CircularQueue {
         return item;
     }
 
-
+    public String peek() {
+        if (size == 0) return null;
+        return queue[front];
+    }
 }
 
 public class TrafficControl {
