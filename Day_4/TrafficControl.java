@@ -12,6 +12,17 @@ class CircularQueue {
         size = 0;
     }
 
+    public void enqueue(String item) {
+        if (size == capacity) {
+            System.out.println("Queue is full");
+            return;
+        }
+        rear = (rear + 1) % capacity;
+        queue[rear] = item;
+        size++;
+    }
+
+
 }
 
 public class TrafficControl {
