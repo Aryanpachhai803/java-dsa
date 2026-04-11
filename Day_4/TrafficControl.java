@@ -39,6 +39,29 @@ class CircularQueue {
 }
 
 public class TrafficControl {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+        CircularQueue lights = new CircularQueue(3);
+
+        lights.enqueue("RED");
+        lights.enqueue("GREEN");
+        lights.enqueue("YELLOW");
+
+        while (true) {
+            String current = lights.dequeue();
+            System.out.println("Current Light: " + current);
+
+            switch (current) {
+                case "RED":
+                    Thread.sleep(3000);
+                    break;
+                case "GREEN":
+                    Thread.sleep(3000);
+                    break;
+                case "YELLOW":
+                    Thread.sleep(1500);  
+                    break;
+            }
+            lights.enqueue(current);
         }
     }
+}
