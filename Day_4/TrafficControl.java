@@ -22,6 +22,16 @@ class CircularQueue {
         size++;
     }
 
+    public String dequeue() {
+        if (size == 0) {
+            return null;
+        }
+        String item = queue[front];
+        front = (front + 1) % capacity;
+        size--;
+        return item;
+    }
+
 
 }
 
