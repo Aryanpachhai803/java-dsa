@@ -47,6 +47,19 @@ class Library {
         }
     }
 
+    public void searchBook(int id) {
+        Book temp = head;
+        while (temp != null) {
+            if (temp.id == id) {
+                System.out.println("Book found: " + temp.title + " by " + temp.author);
+                return;
+            }
+            temp = temp.next;
+        }
+        System.out.println("Book not found.");
+    }
+
+
 }
 
 public class LibraryManagement {
