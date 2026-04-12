@@ -32,6 +32,21 @@ class Library {
         System.out.println("Book added successfully!");
     }
 
+    public void displayBooks() {
+        if (head == null) {
+            System.out.println("No books available.");
+            return;
+        }
+
+        Book temp = head;
+        while (temp != null) {
+            System.out.println("ID: " + temp.id +
+                               ", Title: " + temp.title +
+                               ", Author: " + temp.author);
+            temp = temp.next;
+        }
+    }
+
 }
 
 public class LibraryManagement {
