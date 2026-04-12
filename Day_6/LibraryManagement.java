@@ -15,6 +15,24 @@ class Book {
     }
 }
 
+class Library {
+    Book head = null;
+
+    public void addBook(int id, String title, String author) {
+        Book newBook = new Book(id, title, author);
+        if (head == null) {
+            head = newBook;
+        } else {
+            Book temp = head;
+            while (temp.next != null) {
+                temp = temp.next;
+            }
+            temp.next = newBook;
+        }
+        System.out.println("Book added successfully!");
+    }
+
+}
 
 public class LibraryManagement {
     public static void main(String[] args) {
