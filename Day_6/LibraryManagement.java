@@ -59,7 +59,27 @@ class Library {
         System.out.println("Book not found.");
     }
 
-
+    public void deleteBook(int id) {
+        if (head == null) {
+            System.out.println("Library is empty.");
+            return;
+        }
+        if (head.id == id) {
+            head = head.next;
+            System.out.println("Book deleted.");
+            return;
+        }
+        Book temp = head;
+        while (temp.next != null && temp.next.id != id) {
+            temp = temp.next;
+        }
+        if (temp.next == null) {
+            System.out.println("Book not found.");
+        } else {
+            temp.next = temp.next.next;
+            System.out.println("Book deleted.");
+        }
+    }
 }
 
 public class LibraryManagement {
