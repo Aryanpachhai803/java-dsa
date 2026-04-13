@@ -44,33 +44,38 @@ public class LinkedList {
 
     // ---------------------------------------Delete From Start----------------------------------------
     public void deleteFromStart() {
-        if (head == null) {
-            System.out.println("Underflow Error: List is empty");
-            return;
-        }
-        head = head.next;
+    if (head == null) {
+        System.out.println("Underflow Error: List is empty");
         return;
     }
+    int deleted = head.data;
+    head = head.next;
+    System.out.println("Deleted item from start: " + deleted);
+}
 
     // ---------------------------------------Delete From End------------------------------------------------------------
     public void deleteFromEnd() {
-        if (head == null) {
-            System.out.println("List is empty");
-            return;
-        }
-        if (head.next == null) {
-            head = null;
-            return;
-        }
-        Node secondLastNode = head;
-        Node lastNode = head.next;
-
-        while (lastNode.next != null) {
-            lastNode = lastNode.next;
-            secondLastNode = secondLastNode.next;
-        }
-        secondLastNode.next = null;
+    if (head == null) {
+        System.out.println("List is empty");
+        return;
     }
+    if (head.next == null) {
+        int deleted = head.data;
+        head = null;
+        System.out.println("Deleted item from end: " + deleted);
+        return;
+    }
+    Node secondLastNode = head;
+    Node lastNode = head.next;
+
+    while (lastNode.next != null) {
+        lastNode = lastNode.next;
+        secondLastNode = secondLastNode.next;
+    }
+    int deleted = lastNode.data;
+    secondLastNode.next = null;
+    System.out.println("Deleted item: " + deleted);
+}
 
     // --------------------------------------Traverse/Display all Element------------------------------------------------
     public void traverse() {
