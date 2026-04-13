@@ -54,40 +54,42 @@ public class DoublyLinkedList {
 
     // ---------------- Delete From Start ----------------
     public void deleteFromStart() {
-        if (head == null) {
-            System.out.println("Underflow Error: List is empty");
-            return;
-        }
-
-        if (head.next == null) {
-            head = null;
-            return;
-        }
-
-        head = head.next;
-        head.prev = null;
+    if (head == null) {
+        System.out.println("Underflow Error: List is empty");
+        return;
     }
+    int deleted = head.data;
+    if (head.next == null) {
+        head = null;
+        System.out.println("Deleted item from start: " + deleted);
+        return;
+    }
+    head = head.next;
+    head.prev = null;
+    System.out.println("Deleted item from start: " + deleted);
+}
 
     // ---------------- Delete From End ----------------
     public void deleteFromEnd() {
-        if (head == null) {
-            System.out.println("List is empty");
-            return;
-        }
-
-        if (head.next == null) {
-            head = null;
-            return;
-        }
-
-        Node temp = head;
-
-        while (temp.next != null) {
-            temp = temp.next;
-        }
-
-        temp.prev.next = null;
+    if (head == null) {
+        System.out.println("List is empty");
+        return;
     }
+    int deleted;
+    if (head.next == null) {
+        deleted = head.data;
+        head = null;
+        System.out.println("Deleted item from end: " + deleted);
+        return;
+    }
+    Node temp = head;
+    while (temp.next != null) {
+        temp = temp.next;
+    }
+    deleted = temp.data;  
+    temp.prev.next = null;
+    System.out.println("Deleted item from end: " + deleted); 
+}
 
     // ---------------- Traverse Forward ----------------
     public void traverseForward() {
