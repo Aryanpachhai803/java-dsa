@@ -1,9 +1,8 @@
 package Day_4;
 
-// import java.util.Queue;
 import java.util.Scanner;
 
-public class circularQueue {
+public class CircularQueueDemo{
     
     static int N = 10; //Maximum size of a queue
     static int[] queue = new int[N];
@@ -48,23 +47,24 @@ public class circularQueue {
 
     //DEQUEUE Operation
     public static int dequeue(){
-        if(isEmpty()){
-            System.out.println("Queue is empty");
-        }
-
-        int ITEM = queue[F];
-        
-        if(F == R){
-            F = -1;
-            R = -1;
-            System.out.println("Queue is empty");
-        }
-        else{
-            F = (F+1)%N;
-        }
-
-        return ITEM;
+    if(isEmpty()){
+        System.out.println("Queue is empty");
+        return -1;
     }
+
+    int ITEM = queue[F];
+
+    if(F == R){
+        F = -1;
+        R = -1;
+    }
+    else{
+        F = (F+1)%N;
+    }
+
+    System.out.println("Deleted item: " + ITEM);
+    return ITEM;
+}
 
     //Display Operation
     public static void display(){
