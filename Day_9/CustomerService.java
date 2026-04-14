@@ -41,6 +41,27 @@ class CustomerQueue {
         }
     }
 
+    void peek() {
+        if (front == null) {
+            System.out.println("No customers in queue.");
+        } else {
+            System.out.println("Next customer: " + front.name);
+        }
+    }
+
+    void display() {
+        if (front == null) {
+            System.out.println("Queue is empty.");
+            return;
+        }
+        Node temp = front;
+        System.out.print("Queue: ");
+        while (temp != null) {
+            System.out.print(temp.name + " -> ");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
 }
 
 public class CustomerService {
