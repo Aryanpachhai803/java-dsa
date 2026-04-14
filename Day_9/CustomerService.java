@@ -66,5 +66,50 @@ class CustomerQueue {
 
 public class CustomerService {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        CustomerQueue queue = new CustomerQueue();
+
+        int choice;
+
+        do {
+            System.out.println("--- Customer Service Queue ---");
+            System.out.println("1. Add Customer");
+            System.out.println("2. Serve Customer");
+            System.out.println("3. View Next Customer");
+            System.out.println("4. Display Queue");
+            System.out.println("5. Exit");
+            System.out.print("Enter choice: ");
+            choice = sc.nextInt();
+            sc.nextLine(); // consume newline
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter customer name: ");
+                    String name = sc.nextLine();
+                    queue.enqueue(name);
+                    break;
+
+                case 2:
+                    queue.dequeue();
+                    break;
+
+                case 3:
+                    queue.peek();
+                    break;
+
+                case 4:
+                    queue.display();
+                    break;
+
+                case 5:
+                    System.out.println("Exiting...");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice.");
+            }
+
+        } while (choice != 5);
+        sc.close();
     }
 }
