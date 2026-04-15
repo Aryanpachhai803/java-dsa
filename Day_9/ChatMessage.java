@@ -48,7 +48,18 @@ class ChatQueue {
         }
     }
 
-
+    void displayQueue() {
+        if (front == null) {
+            System.out.println("Queue is empty.");
+            return;
+        }
+        Node temp = front;
+        System.out.println("Pending Messages:");
+        while (temp != null) {
+            System.out.println("- " + temp.message);
+            temp = temp.next;
+        }
+    }
 }
 
 public class ChatMessage {
