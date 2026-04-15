@@ -26,6 +26,20 @@ class ChatQueue {
         System.out.println("Message Sent: " + msg);
     }
 
+    void deliverMessage() {
+        if (front == null) {
+            System.out.println("No messages to deliver.");
+            return;
+        }
+
+        System.out.println("Delivered: " + front.message);
+        front = front.next;
+
+        if (front == null) {
+            rear = null;
+        }
+    }
+
 }
 
 public class ChatMessage {
