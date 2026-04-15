@@ -40,6 +40,15 @@ class ChatQueue {
         }
     }
 
+    void nextMessage() {
+        if (front == null) {
+            System.out.println("No messages in queue.");
+        } else {
+            System.out.println("Next Message: " + front.message);
+        }
+    }
+
+
 }
 
 public class ChatMessage {
