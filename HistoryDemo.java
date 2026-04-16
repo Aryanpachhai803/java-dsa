@@ -13,6 +13,22 @@ class Node {
     }
 }
 
+class BrowserHistory {
+    private Node current;
+
+    public void visit(String url) {
+        Node newNode = new Node(url);
+
+        if (current != null) {
+            current.next = null; 
+            newNode.prev = current;
+        }
+
+        current = newNode;
+        System.out.println("Visited: " + current.url);
+    }
+
+}
 
 public class HistoryDemo {
     public static void main(String[] args) {
