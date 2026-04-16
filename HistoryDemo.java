@@ -46,6 +46,13 @@ class BrowserHistory {
         }
     }
 
+    public void currentPage() {
+        if (current != null) {
+            System.out.println("Current page: " + current.url);
+        } else {
+            System.out.println("No page opened.");
+        }
+    }
 }
 
 public class HistoryDemo {
