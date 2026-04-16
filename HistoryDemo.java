@@ -57,6 +57,52 @@ class BrowserHistory {
 
 public class HistoryDemo {
     public static void main(String[] args) {
-       
+        Scanner sc = new Scanner(System.in);
+        BrowserHistory browser = new BrowserHistory();
+
+        int choice;
+        String url;
+
+        do {
+            System.out.println("\n--- Browser History Menu ---");
+            System.out.println("1. Visit Page");
+            System.out.println("2. Back");
+            System.out.println("3. Forward");
+            System.out.println("4. Current Page");
+            System.out.println("5. Exit");
+            System.out.print("Enter choice: ");
+
+            choice = sc.nextInt();
+            sc.nextLine(); 
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter URL: ");
+                    url = sc.nextLine();
+                    browser.visit(url);
+                    break;
+
+                case 2:
+                    browser.back();
+                    break;
+
+                case 3:
+                    browser.forward();
+                    break;
+
+                case 4:
+                    browser.currentPage();
+                    break;
+
+                case 5:
+                    System.out.println("Exiting...");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice.");
+            }
+        } while (choice != 5);
+
+        sc.close();
     }
 }
