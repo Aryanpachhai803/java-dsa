@@ -57,5 +57,22 @@ public class HashingDemo {
     }
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        insert("ram", "1234");
+        insert("shyam", "abcd");
+
+        display();
+
+        System.out.print("\nEnter username: ");
+        String user = sc.nextLine();
+
+        System.out.print("Enter password: ");
+        String pass = sc.nextLine();
+
+        if (search(user, pass))
+            System.out.println("Login successful!");
+        else
+            System.out.println("Invalid credentials!");
     }
 }
