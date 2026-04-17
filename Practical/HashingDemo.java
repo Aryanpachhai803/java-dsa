@@ -35,7 +35,26 @@ public class HashingDemo {
         System.out.println("User registered successfully!");
     }
 
+    static boolean search(String username, String password) {
+        int index = hashFunction(username);
+        int startIndex = index;
 
+        while (userTable[index] != null) {
+            if (userTable[index].equals(username)) {
+                return passTable[index].equals(hashPassword(password));
+            }
+            index = (index + 1) % 10;
+
+            if (index == startIndex) break; // full loop
+        }
+        return false;
+    }
+
+    static void display() {
+        for (int i = 0; i < userTable.length; i++) {
+            System.out.println(i + " -> " + userTable[i] + " | " + passTable[i]);
+        }
+    }
 
     public static void main(String[] args) {
     }
