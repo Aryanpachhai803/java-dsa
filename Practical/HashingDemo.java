@@ -22,6 +22,19 @@ public class HashingDemo {
         return String.valueOf(hash);
     }
 
+    static void insert(String username, String password) {
+        int index = hashFunction(username);
+
+        // Linear probing for collision handling
+        while (userTable[index] != null) {
+            index = (index + 1) % 10;
+        }
+
+        userTable[index] = username;
+        passTable[index] = hashPassword(password);
+        System.out.println("User registered successfully!");
+    }
+
 
 
     public static void main(String[] args) {
