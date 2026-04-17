@@ -14,6 +14,15 @@ public class HashingDemo {
         return sum % 10;
     }
 
+    static String hashPassword(String password) {
+        int hash = 7;
+        for (int i = 0; i < password.length(); i++) {
+            hash = hash * 31 + password.charAt(i);
+        }
+        return String.valueOf(hash);
+    }
+
+
 
     public static void main(String[] args) {
     }
