@@ -25,6 +25,41 @@ public class HeapDemo {
         }
     }
 
+    static String delete() {
+        String rootTask = task[0];
+
+        priority[0] = priority[size - 1];
+        task[0] = task[size - 1];
+        size--;
+
+        int i = 0;
+
+        while (2 * i + 1 < size) {
+            int left = 2 * i + 1;
+            int right = 2 * i + 2;
+            int smallest = left;
+
+            if (right < size && priority[right] < priority[left]) {
+                smallest = right;
+            }
+
+            if (priority[i] > priority[smallest]) {
+                int tempP = priority[i];
+                priority[i] = priority[smallest];
+                priority[smallest] = tempP;
+
+                String tempT = task[i];
+                task[i] = task[smallest];
+                task[smallest] = tempT;
+
+                i = smallest;
+            } else {
+                break;
+            }
+        }
+
+        return rootTask;
+    }
 
 
     public static void main(String[] args) {
