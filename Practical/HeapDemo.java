@@ -68,6 +68,17 @@ public class HeapDemo {
     }
 
     public static void main(String[] args) {
-        
+        insert(3, "Do Homework");
+        insert(1, "Emergency Fix");
+        insert(4, "Watch Movie");
+        insert(2, "Study Java");
+
+        System.out.println("Tasks in Heap:");
+        display();
+
+        System.out.println("\nProcessing Task: " + delete());
+
+        System.out.println("\nAfter processing:");
+        display();
     }
 }
