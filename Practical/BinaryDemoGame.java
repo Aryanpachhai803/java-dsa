@@ -16,6 +16,23 @@ public class BinaryDemoGame {
         System.out.println("'h' if the guess is higher");
         System.out.println("'c' if the guess is correct");
 
+        while (low <= high) {
+            guess = low + (high - low) / 2;
+            System.out.println("Is your number: " + guess + "?");
+            response = sc.next().charAt(0);
 
+            if (response == 'c') {
+                System.out.println("Guessed your number");
+                break;
+            } else if (response == 'l') {
+                high = guess - 1;
+            } else if (response == 'h') {
+                low = guess + 1;
+            } else {
+                System.out.println("Invalid input! Please enter h, l, or c.");
+            }
+        }
+
+        sc.close();
     }
 }
