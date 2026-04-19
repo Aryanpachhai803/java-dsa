@@ -10,5 +10,12 @@ public class BinaryDemoGame {
         int guess;
         char response;
 
+        System.out.println("Think of a number between 1 and 100.");
+        System.out.println("Respond with:");
+        System.out.println("'l' if the guess is lower");
+        System.out.println("'h' if the guess is higher");
+        System.out.println("'c' if the guess is correct");
+
+
     }
 }
