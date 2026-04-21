@@ -81,6 +81,63 @@ class AVLTree {
         return node;
     }
 
+    FileNode minValueNode(FileNode node) {
+        FileNode current = node;
+        while (current.left != null)
+            current = current.left;
+        return current;
+    }
+
+    FileNode delete(FileNode root, String name) {
+        if (root == null)
+            return root;
+
+        if (name.compareTo(root.fileName) < 0)
+            root.left = delete(root.left, name);
+        else if (name.compareTo(root.fileName) > 0)
+            root.right = delete(root.right, name);
+        else {
+            if ((root.left == null) || (root.right == null)) {
+                FileNode temp = (root.left != null) ? root.left : root.right;
+
+                if (temp == null) {
+                    root = null;
+                } else {
+                    root = temp;
+                }
+            } else {
+                FileNode temp = minValueNode(root.right);
+                root.fileName = temp.fileName;
+                root.right = delete(root.right, temp.fileName);
+            }
+        }
+
+        if (root == null)
+            return root;
+
+        root.height = Math.max(height(root.left), height(root.right)) + 1;
+
+        int balance = getBalance(root);
+
+        if (balance > 1 && getBalance(root.left) >= 0)
+            return rightRotate(root);
+
+        if (balance > 1 && getBalance(root.left) < 0) {
+            root.left = leftRotate(root.left);
+            return rightRotate(root);
+        }
+
+        if (balance < -1 && getBalance(root.right) <= 0)
+            return leftRotate(root);
+
+        if (balance < -1 && getBalance(root.right) > 0) {
+            root.right = rightRotate(root.right);
+            return leftRotate(root);
+        }
+
+        return root;
+    }
+
 }
 
 public class AVLTreeDemo {
