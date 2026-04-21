@@ -159,6 +159,57 @@ class AVLTree {
 
 public class AVLTreeDemo {
     public static void main(String[] args) {
-        
+        Scanner sc = new Scanner(System.in);
+        AVLTree tree = new AVLTree();
+        FileNode root = null;
+
+        while (true) {
+            System.out.println("--- File Indexing System ---");
+            System.out.println("1. Insert File");
+            System.out.println("2. Delete File");
+            System.out.println("3. Search File");
+            System.out.println("4. Display Files");
+            System.out.println("5. Exit");
+            System.out.print("Enter choice: ");
+
+            int choice = sc.nextInt();
+            sc.nextLine();
+
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter file name: ");
+                    String name = sc.nextLine();
+                    root = tree.insert(root, name);
+                    break;
+
+                case 2:
+                    System.out.print("Enter file name to delete: ");
+                    name = sc.nextLine();
+                    root = tree.delete(root, name);
+                    break;
+
+                case 3:
+                    System.out.print("Enter file name to search: ");
+                    name = sc.nextLine();
+                    FileNode result = tree.search(root, name);
+                    if (result != null)
+                        System.out.println("File found: " + result.fileName);
+                    else
+                        System.out.println("File not found.");
+                    break;
+
+                case 4:
+                    System.out.println("\n--- File List ---");
+                    tree.inorder(root);
+                    break;
+
+                case 5:
+                    System.out.println("Exiting...");
+                    return;
+
+                default:
+                    System.out.println("Invalid choice!");
+            }
+        }
     }
 }
