@@ -138,6 +138,23 @@ class AVLTree {
         return root;
     }
 
+    FileNode search(FileNode root, String name) {
+        if (root == null || root.fileName.equals(name))
+            return root;
+
+        if (name.compareTo(root.fileName) < 0)
+            return search(root.left, name);
+
+        return search(root.right, name);
+    }
+
+    void inorder(FileNode root) {
+        if (root != null) {
+            inorder(root.left);
+            System.out.println(root.fileName);
+            inorder(root.right);
+        }
+    }
 }
 
 public class AVLTreeDemo {
