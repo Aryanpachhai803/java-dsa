@@ -112,5 +112,46 @@ public class StudentSorter {
     }
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of students: ");
+        int n = sc.nextInt();
+        sc.nextLine();
+
+        Student[] students = new Student[n];
+
+        for (int i = 0; i < n; i++) {
+            System.out.println("\nEnter details for student " + (i + 1));
+            System.out.print("Roll: ");
+            int roll = sc.nextInt();
+            sc.nextLine();
+
+            System.out.print("Name: ");
+            String name = sc.nextLine();
+
+            System.out.print("Marks: ");
+            int marks = sc.nextInt();
+
+            students[i] = new Student(roll, name, marks);
+        }
+
+        System.out.println("\nChoose sorting method:");
+        System.out.println("1. Sort by Marks");
+        System.out.println("2. Sort by Name");
+
+        int choice = sc.nextInt();
+
+        if (choice == 1) {
+            mergeSortByMarks(students, 0, n - 1);
+            System.out.println("\nSorted by Marks:");
+        } else if (choice == 2) {
+            mergeSortByName(students, 0, n - 1);
+            System.out.println("\nSorted by Name:");
+        } else {
+            System.out.println("Invalid choice!");
+            return;
+        }
+
+        printStudents(students);
     }
 }
