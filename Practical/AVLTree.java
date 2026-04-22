@@ -1,7 +1,5 @@
 package Practical;
 
-import AVLTree;
-
 public class AVLTree {
 
     class Node {
