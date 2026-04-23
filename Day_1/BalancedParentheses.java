@@ -33,6 +33,12 @@ public class BalancedParentheses {
     }
 
     public static void main(String[] args) {
-        
+        String expression = "{[()]}";
+
+        if (isBalanced(expression)) {
+            System.out.println("Balanced");
+        } else {
+            System.out.println("Not Balanced");
+        }
     }
 }
