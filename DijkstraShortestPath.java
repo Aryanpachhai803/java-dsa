@@ -50,6 +50,12 @@ public class DijkstraShortestPath {
         }
     }
 
+    private static void printPath(int[] parent, int node) {
+        if (node == -1) return;
+        printPath(parent, parent[node]);
+        System.out.print(node + " ");
+    }
+
     public static void main(String[] args) {
       
     }
