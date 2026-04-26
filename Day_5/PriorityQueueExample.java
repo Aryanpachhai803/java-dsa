@@ -10,7 +10,7 @@ public class PriorityQueueExample {
         // PriorityQueue<Integer> pq = new PriorityQueue<>();
 
         //Max Priority
-        PriorityQueue<Integer> pq = new PriorityQueue<>(Collections.reverseOrder());
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
         
         pq.add(10);
         pq.add(5);
